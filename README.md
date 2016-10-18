@@ -1,5 +1,5 @@
 # movie-similarity-filter
 
-Simply run
+To run :    python com.aswin.movie-filter/boot.py
 
-python com.aswin.movie-filter/boot.py
+Dependencies : sklearn, pandas
