@@ -9,7 +9,7 @@ if __name__ == "__main__":
     print "Enter the path of the raw data file."
     input_file = raw_input()
 
-    """read the raw file as a dataframe """
+    #read the raw file as a dataframe
     df = pd.read_excel(input_file, header=0).fillna(" ")
     df[const.FEATURES] = df[const.FEATURE_1].map(str) + const.COLON + df[const.FEATURE_2] \
                          + const.COLON + df[const.FEATURE_3] + const.COLON + df[const.FEATURE_4]
