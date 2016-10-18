@@ -1,0 +1,6 @@
+FEATURES = "features"
+FEATURE_1 = "Genre"
+FEATURE_2 = "Actors"
+FEATURE_3 = "Director"
+FEATURE_4 = "language"
+COLON = ";"

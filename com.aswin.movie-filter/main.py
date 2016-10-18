@@ -1,4 +1,5 @@
 import pandas as pd
+import constants as const
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -8,14 +9,15 @@ if __name__ == "__main__":
     input_file = raw_input()
 
     df = pd.read_excel(input_file, header=0).fillna(" ")
-    df["features"] = df["Genre"].map(str) + ";" + df["Actors"] + ";" + df["Director"] + ";" + df["language"]
+    df[const.FEATURES] = df[const.FEATURE_1].map(str) + const.COLON + df[const.FEATURE_2] \
+                         + const.COLON + df[const.FEATURE_3] + const.COLON + df[const.FEATURE_4]
 
     print "Please enter the Movie Id :"
     movie_id = int(raw_input())
     print "Please enter the number of similar movies to display :"
     similar_number_of_movies = int(raw_input())
 
-    tfidf_matrix = TfidfVectorizer().fit_transform(df['features'])
+    tfidf_matrix = TfidfVectorizer().fit_transform(df[const.FEATURES])
 
     result = cosine_similarity(tfidf_matrix[movie_id - 1:movie_id], tfidf_matrix).flatten()
 
